@@ -82,7 +82,6 @@ namespace RestaurantRater.Controllers
             //Update the restaurant
             restaurant.Name = updatedRestaurant.Name;
             restaurant.Address = updatedRestaurant.Address;
-            restaurant.Rating = updatedRestaurant.Rating;
 
             //Save changes
             await _context.SaveChangesAsync();
