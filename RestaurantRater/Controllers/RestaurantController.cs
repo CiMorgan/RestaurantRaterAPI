@@ -12,8 +12,8 @@ namespace RestaurantRater.Controllers
 {
     public class RestaurantController : ApiController
     {
-        private readonly RestaurantDbContext _context = new RestaurantDbContext();
-        // POST (create restaurant method)
+        private readonly RestaurantDbContext _context = new RestaurantDbContext();  //create a DbContext instance field - call in the controller methods
+        // POST "create restaurant method"   CREATE
         // api/Restaurant
         [HttpPost]  //attribute that indicates this is a post method regardless of the name given
         public async Task<IHttpActionResult> CreateRestaurant ([FromBody] Restaurant model)
@@ -26,13 +26,13 @@ namespace RestaurantRater.Controllers
             if (ModelState.IsValid)    //if the model is valid (empty model is valid)
             {
                 //Store the model in the database
-                _context.Restaurants.Add(model);
+                _context.Restaurants.Add(model); //model is added to created DbContext field (_context) if it is valid
                 int changeCount = await _context.SaveChangesAsync();    //need to save to database since _context is just a "snapshot' of database; returns an int (task integer) if change counter is desired
-                return Ok("Your restaurant was created!");
+                return Ok("Your restaurant was created!");  //200 OK result plus a string of choice
             }
 
-            //The model is not valid, reject model
-            return BadRequest(ModelState);   //ModelState will return what is wrong
+            //If the model is not valid, reject model
+            return BadRequest(ModelState);   //ModelState will return what is wrong with model
         }
         // GET ALL - getting all restaurants
         // api/Restaurant

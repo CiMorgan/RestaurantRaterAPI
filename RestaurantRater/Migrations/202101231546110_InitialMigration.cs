@@ -5,10 +5,10 @@
     
     public partial class InitialMigration : DbMigration
     {
-        public override void Up()
+        public override void Up()   //what happens when we run migration
         {
             CreateTable(
-                "dbo.Restaurants",
+                "dbo.Restaurants",          //creates a table named Restaurants with properties of restaurant class
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),

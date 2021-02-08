@@ -22,17 +22,17 @@ namespace RestaurantRater.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody] string value)
+        public void Post([FromBody] string value)    //does not return a value but will return a response code (i.e. 200)
         {
         }
 
         // PUT api/values/5
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] string value)  //does not return a value but will return a response code (i.e. 200)
         {
         }
 
-        // DELETE api/values/5
-        public void Delete(int id)
+        // DELETE api/values/5   
+        public void Delete(int id)   //does not return a value but will return a response code (i.e. 200)
         {
         }
     }
