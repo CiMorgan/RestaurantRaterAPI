@@ -39,20 +39,20 @@ namespace RestaurantRater.Controllers
         [HttpGet]       
         public async Task<IHttpActionResult> GetAll()
         {
-            List<Restaurant> restaurants = await _context.Restaurants.ToListAsync();
+            List<Restaurant> restaurants = await _context.Restaurants.ToListAsync();  //asynchronously turn whole restaurant table into a list of restaurants
             return Ok(restaurants);
         }
 
         // Get By ID
-        // api/Restaurant/{id}
+        // api/Restaurant/{id} id is a route paramater
         [HttpGet]
-        public async Task<IHttpActionResult> GetById([FromUri] int id)
+        public async Task<IHttpActionResult> GetById([FromUri] int id)  //getting id from url
         {
-            Restaurant restaurant = await _context.Restaurants.FindAsync(id);
+            Restaurant restaurant = await _context.Restaurants.FindAsync(id);  //FindAsync takes in primary key
 
             if (restaurant != null)
             {
-                return Ok(restaurant);
+                return Ok(restaurant);   //returns restaurant
             }
             return NotFound();
         }
@@ -63,7 +63,7 @@ namespace RestaurantRater.Controllers
         public async Task<IHttpActionResult> UpdateRestaurant([FromUri] int id, [FromBody] Restaurant updatedRestaurant)
         {
             //Check the ids if they match
-            if (id != updatedRestaurant?.Id)   // ? checks to see if restaurant is null first. If it is, evaluated as false. if not null, does id check.
+            if (id != updatedRestaurant?.Id)   // ? checks to see if restaurant is null first. If it is, evaluated as false. If not null, does id check.
             {
                 return BadRequest("Ids do not match.");  
             }
