@@ -17,7 +17,7 @@ namespace RestaurantRater.Models
         [Required]
         public string Address { get; set; }
 
-        public virtual List<Rating> Ratings { get; set; } = new List<Rating>();
+        public virtual List<Rating> Ratings { get; set; } = new List<Rating>();   //will have a list even if it has nothing in it
 
         public double Rating
         {

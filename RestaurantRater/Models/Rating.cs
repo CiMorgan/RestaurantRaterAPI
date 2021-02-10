@@ -12,10 +12,11 @@ namespace RestaurantRater.Models
         [Key]
         public int Id { get; set; }   //primary key - this object
 
-        [ForeignKey(nameof(Restaurant))]
-        public int RestaurantId { get; set; }  //foreign key - reference to a primary key of another object
+        [ForeignKey(nameof(Restaurant))]  
+        public int RestaurantId { get; set; }  //foreign key - reference to a primary key of another table
 
-        public virtual Restaurant Restaurant { get; set; }  //Navigation Property
+        //Navigation Property; 
+        public virtual Restaurant Restaurant { get; set; }  // virtual keyword enables it to be over-written (builds the foreign key relationship)
         
         [Required]
         [Range (0,10)]
