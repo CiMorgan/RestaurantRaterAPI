@@ -14,6 +14,6 @@ namespace RestaurantRater.Models
         }
 
         public DbSet<Restaurant> Restaurants { get; set; }  //DbSet - db table of restaurant entities
-        public DbSet<Rating> Ratings { get; set; }
+        public DbSet<Rating> Ratings { get; set; }  //redid migration when Rating class added
     }
 }

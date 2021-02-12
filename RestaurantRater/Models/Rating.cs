@@ -26,9 +26,9 @@ namespace RestaurantRater.Models
         [Required, Range(0, 10)]
         public double EnvironmentScore { get; set; }
 
-        public double AverageRating
+        public double AverageRating  //property
         {
-            get
+            get  //read only property; does not have setter
             {
                 var totalScore = FoodScore + EnvironmentScore + CleanlinessScore;
                 return totalScore / 3;

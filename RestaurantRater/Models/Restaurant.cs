@@ -17,30 +17,30 @@ namespace RestaurantRater.Models
         [Required]
         public string Address { get; set; }
 
-        public virtual List<Rating> Ratings { get; set; } = new List<Rating>();   //will have a list even if it has nothing in it
+        public virtual List<Rating> Ratings { get; set; } = new List<Rating>();   //will have a list even if it has nothing in it - initialized inline
 
         public double Rating
         {
-            get
+            get  //read only (no setter)
             {
                 double totalAverageRating = 0;
-                //add all Ratings
+                //add all Ratings - everything in list
                 foreach (var rating in Ratings)
                 {
                     totalAverageRating += rating.AverageRating;
                 }
 
-                //get average from total
-                return Ratings.Count > 0
-                    ? Math.Round(totalAverageRating / Ratings.Count, 2) :
-                    0;
+                //get average from total (using ternary)
+                return Ratings.Count > 0   //condition
+                    ? Math.Round(totalAverageRating / Ratings.Count, 2) :   //if true - need Math.Round to round to 2 decimal points
+                    0;   //if not true
             }
         }
         public bool IsRecommended
         {
-            get
+            get  //read only (no setter)
             {
-                return Rating > 8;
+                return Rating > 8; //will return true if Rating > 8
             }
         }
         // Average Food Rating
