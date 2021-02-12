@@ -99,7 +99,7 @@ namespace RestaurantRater.Controllers
 
             _context.Restaurants.Remove(restaurant);
 
-            if(await _context.SaveChangesAsync() == 1)    //returns int of number of changes (delete restaurant is one change)
+            if(await _context.SaveChangesAsync() == 1)    //returns int of number of changes (delete restaurant is one change - at this time)
             {
                 return Ok("The restaurant was deleted.");
             }
