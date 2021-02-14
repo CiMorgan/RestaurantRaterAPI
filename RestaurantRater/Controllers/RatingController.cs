@@ -122,7 +122,7 @@ namespace RestaurantRater.Controllers
 
             _context.Ratings.Remove(rating);
 
-            if (await _context.SaveChangesAsync() == 1)   
+            if (await _context.SaveChangesAsync() == 1)   //checks to see if delete occurred
             {
                 return Ok("The rating was deleted.");
             }
